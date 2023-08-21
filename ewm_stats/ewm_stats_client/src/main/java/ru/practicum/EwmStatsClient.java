@@ -1,6 +1,6 @@
 package ru.practicum;
 
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
@@ -11,10 +11,16 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Component
-@RequiredArgsConstructor
 public class EwmStatsClient {
     private final WebClient client;
+
+    private static final String HOST = "http://stats-server:9090";
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+    @Autowired
+    public EwmStatsClient() {
+        this.client = WebClient.create(HOST);
+    }
 
     public List<ViewStatsDto> getStats(LocalDateTime start, LocalDateTime end, List<String> uriList, Boolean unique) {
         return client.get()
