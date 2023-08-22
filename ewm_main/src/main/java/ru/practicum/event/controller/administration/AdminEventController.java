@@ -35,9 +35,9 @@ public class AdminEventController {
                                               @RequestParam(required = false) List<EventState> states,
                                               @RequestParam(required = false) List<Long> categoriesIds,
                                               @RequestParam(required = false)
-                                              @DateTimeFormat LocalDateTime rangeStart,
+                                              @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime rangeStart,
                                               @RequestParam(required = false)
-                                              @DateTimeFormat LocalDateTime rangeEnd,
+                                              @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime rangeEnd,
                                               @PositiveOrZero @RequestParam(defaultValue = "0") Integer from,
                                               @Positive @RequestParam(defaultValue = "10") Integer size) {
         return eventService.findAllForAdmin(usersIds, states, categoriesIds, rangeStart, rangeEnd,
