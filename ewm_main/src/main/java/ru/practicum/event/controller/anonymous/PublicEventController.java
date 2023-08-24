@@ -25,7 +25,7 @@ import java.util.List;
 public class PublicEventController {
     private final EventService eventService;
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public EventDto findById(@Positive @PathVariable Long id, HttpServletRequest request) {
         return eventService.findEventDtoById(id, request);
     }

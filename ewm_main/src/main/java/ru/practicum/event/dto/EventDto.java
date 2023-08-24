@@ -20,17 +20,17 @@ public class EventDto {
     private Long id;
     private String annotation;
     private CategoryDto category;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat
     private LocalDateTime createdOn;
     private String description;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat
     private LocalDateTime eventDate;
     private UserDto initiator;
     private LocationDto location;
     private boolean paid;
     private Long participantLimit;
     private Long confirmedRequests;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat
     private LocalDateTime publishedOn;
     private boolean requestModeration;
     private EventState state;
