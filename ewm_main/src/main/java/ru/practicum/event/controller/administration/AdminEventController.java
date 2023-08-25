@@ -24,7 +24,7 @@ import java.util.List;
 public class AdminEventController {
     private final EventService eventService;
 
-    @PatchMapping("{eventId}")
+    @PatchMapping("/{eventId}")
     public EventFullDto updateForAdmin(@PathVariable Long eventId,
                                        @RequestBody @Valid UpdateEventAdminRequest updateEventAdminRequest) {
         return eventService.updateForAdmin(eventId, updateEventAdminRequest);
