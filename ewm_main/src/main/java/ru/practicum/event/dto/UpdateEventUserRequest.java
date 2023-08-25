@@ -14,10 +14,10 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UpdateEventUserRequest {
-    @Size(min = 20, max = 2500)
+    @Size(min = 20, max = 2000)
     private String annotation;
     private Long category;
-    @Size(min = 20, max = 6000)
+    @Size(min = 20, max = 7000)
     private String description;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime eventDate;
@@ -26,6 +26,6 @@ public class UpdateEventUserRequest {
     private Long participantLimit;
     private Boolean requestModeration;
     private StateAction stateAction;
-    @Size(min = 2, max = 120)
+    @Size(min = 3, max = 120)
     private String title;
 }
