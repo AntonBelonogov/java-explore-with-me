@@ -19,7 +19,7 @@ public class UpdateEventUserRequest {
     private Long category;
     @Size(min = 20, max = 6000)
     private String description;
-    @JsonFormat
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime eventDate;
     private LocationDto location;
     private Boolean paid;

@@ -18,17 +18,17 @@ public class EventFullDto {
     private String annotation;
     private Category category;
     private Long confirmedRequests;
-    @JsonFormat
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createdOn;
     private String description;
-    @JsonFormat
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime eventDate;
     private Long id;
     private UserShortDto initiator;
     private LocationDto location;
     private Boolean paid;
     private Long participantLimit;
-    @JsonFormat
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime publishedOn;
     private Boolean requestModeration;
     private EventState state;
