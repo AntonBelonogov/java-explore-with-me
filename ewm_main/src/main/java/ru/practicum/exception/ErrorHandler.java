@@ -75,4 +75,16 @@ public class ErrorHandler {
                 .timestamp(LocalDateTime.now().format(FORMATTER))
                 .build();
     }
+
+    @ExceptionHandler
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    public ApiError handleAccessException(final AccessException e) {
+        log.debug("Получен статус 403 Forbidden {}", e.getMessage(), e);
+        return ApiError.builder()
+                .status("FORBIDDEN")
+                .reason(e.getMessage())
+                .message(e.getCause())
+                .timestamp(LocalDateTime.now().format(FORMATTER))
+                .build();
+    }
 }

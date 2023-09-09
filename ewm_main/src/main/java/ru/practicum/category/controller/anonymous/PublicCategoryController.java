@@ -19,7 +19,7 @@ public class PublicCategoryController {
     private final CategoryService categoryService;
 
     @GetMapping("/{catId}")
-    public CategoryDto findById(@PathVariable("catId") Long catId) {
+    public CategoryDto findById(@PathVariable Long catId) {
         return categoryService.findCategoryDtoById(catId);
     }
 

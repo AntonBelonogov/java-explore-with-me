@@ -19,7 +19,7 @@ import java.util.List;
 public class PublicCompilationController {
     private final CompilationService compilationService;
 
-    @GetMapping("{compId}")
+    @GetMapping("/{compId}")
     public CompilationDto findCompilationDtoById(@PositiveOrZero @PathVariable Long compId) {
         return compilationService.findCompilationDtoById(compId);
     }

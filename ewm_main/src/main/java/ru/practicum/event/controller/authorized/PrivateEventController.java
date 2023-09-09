@@ -25,37 +25,37 @@ public class PrivateEventController {
     private final EventService eventService;
     private final RequestService requestService;
 
-    @PostMapping("{userId}/events")
+    @PostMapping("/{userId}/events")
     @ResponseStatus(HttpStatus.CREATED)
     public EventDto save(@PathVariable("userId") Long userId, @RequestBody @Valid NewEventDto newEventDto) {
         return eventService.save(userId, newEventDto);
     }
 
-    @PatchMapping("{userId}/events/{eventId}")
+    @PatchMapping("/{userId}/events/{eventId}")
     public EventFullDto updateForUser(@PathVariable Long userId,
                                       @PathVariable Long eventId,
                                       @RequestBody @Valid UpdateEventUserRequest updateEventUserRequest) {
         return eventService.updateForUser(userId, eventId, updateEventUserRequest);
     }
 
-    @GetMapping("{userId}/events/{eventId}")
+    @GetMapping("/{userId}/events/{eventId}")
     public EventDto findByIdAndUser(@PathVariable("userId") Long userId, @PathVariable Long eventId) {
         return eventService.findByIdAndUser(userId, eventId);
     }
 
-    @GetMapping("{userId}/events")
+    @GetMapping("/{userId}/events")
     public List<EventShortDto> findAllForUser(@PathVariable("userId") Long userId,
                                               @PositiveOrZero @RequestParam(defaultValue = "0") int from,
                                               @Positive @RequestParam(defaultValue = "10") int size) {
         return eventService.findAllForUser(userId, PageRequest.of(from / size, size));
     }
 
-    @GetMapping("{userId}/events/{eventId}/requests")
+    @GetMapping("/{userId}/events/{eventId}/requests")
     public List<RequestDto> findAllRequestsByEventId(@PathVariable Long userId, @PathVariable Long eventId) {
         return requestService.findAllRequestsByEventId(userId, eventId);
     }
 
-    @PatchMapping("{userId}/events/{eventId}/requests")
+    @PatchMapping("/{userId}/events/{eventId}/requests")
     public EventRequestStatusUpdateResult updateRequestStatus(
             @PathVariable Long userId,
             @PathVariable Long eventId,
